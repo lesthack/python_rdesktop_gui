@@ -8,7 +8,7 @@ shutil.copyfile('python_rdesktop_gui.py', 'python_rdesktop_gui')
 
 setup(
     name='python_rdesktop_gui',
-    version='0.1',
+    version='0.2',
     scripts = ['python_rdesktop_gui'],
     
     platforms = 'linux',
@@ -23,15 +23,15 @@ setup(
     
     data_files = [
         ('/usr/share/applications', ['data/python_rdesktop_gui.desktop']),
-        ('/usr/share/icons/hicolor/16x16/apps', ['data/icons/16x16/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/22x22/apps', ['data/icons/22x22/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/24x24/apps', ['data/icons/24x24/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/32x32/apps', ['data/icons/32x32/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/48x48/apps', ['data/icons/48x48/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/64x64/apps', ['data/icons/64x64/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/128x128/apps', ['data/icons/128x128/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/256x256/apps', ['data/icons/256x256/apps/python_rdesktop_gui.png']),
-        ('/usr/share/icons/hicolor/scalable/apps', ['data/icons/scalable/apps/python_rdesktop_gui.svg']),
+        ('/usr/local/share/icons/hicolor/16x16/apps', ['data/icons/16x16/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/22x22/apps', ['data/icons/22x22/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/24x24/apps', ['data/icons/24x24/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/32x32/apps', ['data/icons/32x32/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/48x48/apps', ['data/icons/48x48/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/64x64/apps', ['data/icons/64x64/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/128x128/apps', ['data/icons/128x128/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/256x256/apps', ['data/icons/256x256/apps/python_rdesktop_gui.png']),
+        ('/usr/local/share/icons/hicolor/scalable/apps', ['data/icons/scalable/apps/python_rdesktop_gui.svg']),
     ],
 
     classifiers=[
@@ -48,6 +48,5 @@ setup(
         'Topic :: System :: Systems Administration',
         'Topic :: Utilities',
     ],
-
 )
 
