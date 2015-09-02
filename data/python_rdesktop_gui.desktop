@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Python rdesktop GUI
+Comment=GUI for Rdesktop
+Categories=GNOME;GTK;Network;Application;
+Exec=python_rdesktop_gui
+Icon=python_rdesktop_gui
+StartupWMClass=python_rdesktop_gui
+Terminal=false
+Type=Application

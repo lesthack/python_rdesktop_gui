@@ -1,16 +1,32 @@
 from setuptools import setup, find_packages
 import os
 import sys
+import shutil
+
+shutil.copyfile('python_rdesktop_gui.py', 'python_rdesktop_gui')
 
 setup(
     name='python_rdesktop_gui',
     version='1.0.0',
     description='A sample gui for rdesktop',
-    url='https://github.com/',
+    scripts = ['python_rdesktop_gui'],
+    url='https://github.com/lesthack/python_rdesktop_gui.git',
     author='Spencer McIntyre',
     author_email='',
-    license='GPL3',
+    maintainer = 'lesthack',
+    maintainer_email = 'lesthack@gmail.com',
+    license='GPL3',    
+    keywords=['rdesktop', 'rdp', 'remote desktop', 'terminal server'],
+    packages=find_packages(),
+    install_requires=[],
+    package_data={},
+    zip_safe=False,
     
+    data_files = [
+        ('/usr/share/applications', ['data/python_rdesktop_gui.desktop']),
+        ('/usr/share/icons/hicolor/scalable/apps', ['data/icons/scalable/apps/python_rdesktop_gui.svg']),
+    ],
+
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -21,23 +37,10 @@ setup(
         'Programming Language :: Python :: 2.7',
     ],
 
-    keywords='development remotedesktop rdesktop',
-    packages=find_packages(),
-    install_requires=[],
     extras_require={
         'dev': [],
         'test': [],
     },
 
-    package_data={
-    },
-    zip_safe=False,
-    data_files=[],
-
-    entry_points={
-        'console_scripts': [
-            'python_rdesktop_gui=python_rdesktop_gui:main',
-        ],
-    },
 )
 
