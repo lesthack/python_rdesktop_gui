@@ -7,20 +7,18 @@ shutil.copyfile('python_rdesktop_gui.py', 'python_rdesktop_gui')
 
 setup(
     name='python_rdesktop_gui',
-    version='1.0.0',
-    description='A sample gui for rdesktop',
+    version='0.1',
     scripts = ['python_rdesktop_gui'],
-    url='https://github.com/lesthack/python_rdesktop_gui.git',
+    
+    platforms = 'linux',
     author='Spencer McIntyre',
     author_email='',
-    maintainer = 'lesthack',
+    maintainer = 'Jorge Hernández (lesthack)',
     maintainer_email = 'lesthack@gmail.com',
+    description='A sample gui for rdesktop',
     license='GPL3',    
     keywords=['rdesktop', 'rdp', 'remote desktop', 'terminal server'],
-    packages=find_packages(),
-    install_requires=[],
-    package_data={},
-    zip_safe=False,
+    url='https://github.com/lesthack/python_rdesktop_gui.git',
     
     data_files = [
         ('/usr/share/applications', ['data/python_rdesktop_gui.desktop']),
@@ -31,16 +29,16 @@ setup(
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'Environment :: X11 Applications :: GTK',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Intended Audience :: End Users/Desktop',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: System Administrators',
+        'License :: OSI Approved :: BSD License',
+        'Natural Language :: English',
+        'Operating System :: POSIX :: Linux',
+        'Programming Language :: Python',
+        'Topic :: System :: Systems Administration',
+        'Topic :: Utilities',
     ],
-
-    extras_require={
-        'dev': [],
-        'test': [],
-    },
 
 )
 
