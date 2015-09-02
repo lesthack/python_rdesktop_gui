@@ -1,12 +1,16 @@
 # python_rdesktop_gui
 
-Script original de [Spencer McIntyre](https://gist.github.com/zeroSteiner/6179745)
+Autor (script): [Spencer McIntyre](https://gist.github.com/zeroSteiner/6179745)
 
-**python_rdesktop_gui** es una simple y básica interfaz gráfica para el uso de rdesktop.
+**python_rdesktop_gui** is a basic and simple graphic interface for rdesktop.
 
-## Instalar
+## Install
 
 ```
-git clone https://github.com/lesthack/python_rdesktop_gui.git
-sudo python setup.py
+$ sudo pip install python_rdesktop_gui
+```
+
+## Run
+```
+$ python_rdesktop_gui
 ```
