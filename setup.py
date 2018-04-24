@@ -17,7 +17,7 @@ setup(
     maintainer = 'Jorge Hernández (lesthack)',
     maintainer_email = 'lesthack@gmail.com',
     description='A sample gui for rdesktop',
-    long_description=description,
+    long_description='A sample gui for rdesktop',
     long_description_content_type='text/x-rst',
     license='GPL3',    
     keywords=['rdesktop', 'rdp', 'remote desktop', 'terminal server'],
