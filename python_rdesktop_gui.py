@@ -186,6 +186,22 @@ class RdesktopWindow(Gtk.Window):
 		else:
 			self.config.set('main', 'hosts', host)
 		execl_args.append(host)
+
+                # Experience
+                execl_args.append('-x l')
+                # Compress
+                execl_args.append('-z')
+                # Caching bitmaps
+                execl_args.append('-P')
+                # Title
+                execl_args.append('-T {}_{}'.format(host,username))
+                # Clipboard Activado
+                execl_args.append('-r')
+                execl_args.append('clipboard:PRIMARYCLIPBOARD')
+                # disk remote
+                execl_args.append('-r')
+                execl_args.append('disk:remote={}'.format(os.path.expanduser('~') + '/Public'))
+
 		self.config.write(open(self.config_path, 'w'))
 		self.hide()
 		while Gtk.events_pending():
