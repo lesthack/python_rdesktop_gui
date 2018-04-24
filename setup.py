@@ -8,7 +8,7 @@ shutil.copyfile('python_rdesktop_gui.py', 'python_rdesktop_gui')
 
 setup(
     name='python_rdesktop_gui',
-    version='0.2',
+    version='0.3',
     scripts = ['python_rdesktop_gui'],
     
     platforms = 'linux',
@@ -17,6 +17,8 @@ setup(
     maintainer = 'Jorge Hernández (lesthack)',
     maintainer_email = 'lesthack@gmail.com',
     description='A sample gui for rdesktop',
+    long_description=long_description,
+    long_description_content_type='text/x-rst',
     license='GPL3',    
     keywords=['rdesktop', 'rdp', 'remote desktop', 'terminal server'],
     url='https://github.com/lesthack/python_rdesktop_gui.git',
