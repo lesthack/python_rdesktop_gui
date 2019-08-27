@@ -33,20 +33,22 @@
 #  Homepage: https://gist.github.com/zeroSteiner/6179745
 #  Author:   Spencer McIntyre (zeroSteiner)
 
+import os
+import subprocess
+import sys
 try:
     from configparser import ConfigParser
 except ImportError:
     from ConfigParser import ConfigParser
-import os
-os.EX__BASE = 64
-import subprocess
-import sys
 try:
-	import urllib.parse as urlparse
+    import urllib.parse as urlparse
 except ImportError:
     from urlparse import urlparse
 
 from gi.repository import Gtk
+
+os.EX__BASE = 64
+
 
 def find_rdesktop():
     for directory in os.getenv('PATH').split(':'):
@@ -54,6 +56,7 @@ def find_rdesktop():
         if os.path.isfile(location):
             return location
     return None
+
 
 class RdesktopWindow(Gtk.Window):
     def __init__(self, rdesktop_bin, config_path):
@@ -70,7 +73,7 @@ class RdesktopWindow(Gtk.Window):
         if not self.config.has_section('main'):
             self.config.add_section('main')
 
-        main_vbox = Gtk.VBox(spacing = 5)
+        main_vbox = Gtk.VBox(spacing=5)
         self.add(main_vbox)
 
         frame = Gtk.Frame()
@@ -78,11 +81,11 @@ class RdesktopWindow(Gtk.Window):
         frame.set_border_width(10)
         main_vbox.add(frame)
 
-        options_hbox = Gtk.HBox(spacing = 5)
+        options_hbox = Gtk.HBox(spacing=5)
         frame.add(options_hbox)
-        column1_vbox = Gtk.VBox(spacing = 5)
+        column1_vbox = Gtk.VBox(spacing=5)
         options_hbox.add(column1_vbox)
-        column2_vbox = Gtk.VBox(spacing = 5)
+        column2_vbox = Gtk.VBox(spacing=5)
         options_hbox.add(column2_vbox)
 
         column1_vbox.add(Gtk.Label('Host'))
@@ -139,7 +142,10 @@ class RdesktopWindow(Gtk.Window):
         self.attach_to_console_btn = Gtk.CheckButton(label='Attach To Console')
         if self.config.has_option('main', 'console'):
             attach_to_console = self.config.getboolean('main', 'console')
-            self.attach_to_console_btn.set_property('active', attach_to_console)
+            self.attach_to_console_btn.set_property(
+                'active',
+                attach_to_console
+            )
         column2_vbox.add(self.attach_to_console_btn)
 
         hbox = Gtk.HBox(False)
@@ -147,11 +153,20 @@ class RdesktopWindow(Gtk.Window):
         connect_button = Gtk.Button()
         connect_button.set_border_width(10)
         self.connect_button = connect_button
-        self.password_entry.connect('activate', lambda w: self.connect_button.emit('clicked'))
-        self.username_entry.connect('activate', lambda w: self.connect_button.emit('clicked'))
+        self.password_entry.connect(
+            'activate',
+            lambda w: self.connect_button.emit('clicked')
+        )
+        self.username_entry.connect(
+            'activate',
+            lambda w: self.connect_button.emit('clicked')
+        )
         hbox.pack_end(connect_button, False, False, 5)
         hbox = Gtk.HBox()
-        hbox.add(Gtk.Image.new_from_stock(Gtk.STOCK_APPLY, Gtk.IconSize.BUTTON))
+        hbox.add(Gtk.Image.new_from_stock(
+            Gtk.STOCK_APPLY,
+            Gtk.IconSize.BUTTON)
+        )
         hbox.add(Gtk.Label('Connect'))
         connect_button.add(hbox)
         connect_button.connect('clicked', self.on_connect_clicked)
@@ -201,13 +216,15 @@ class RdesktopWindow(Gtk.Window):
         # Caching bitmaps
         execl_args.append('-P')
         # Title
-        execl_args.append('-T {}_{}'.format(host,username))
+        execl_args.append('-T {}_{}'.format(host, username))
         # Clipboard Activado
         execl_args.append('-r')
         execl_args.append('clipboard:PRIMARYCLIPBOARD')
         # disk remote
         execl_args.append('-r')
-        execl_args.append('disk:remote={}'.format(os.path.expanduser('~') + '/Public'))
+        execl_args.append('disk:remote={}'.format(
+            os.path.expanduser('~') + '/Public')
+        )
         # keyboard lang
         execl_args.append('-k en-us')
 
@@ -215,24 +232,27 @@ class RdesktopWindow(Gtk.Window):
         self.hide()
         while Gtk.events_pending():
             Gtk.main_iteration()
-        proc_h = subprocess.Popen(execl_args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        proc_h = subprocess.Popen(
+            execl_args,
+            stdin=subprocess.PIPE,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE
+        )
         result = proc_h.wait()
-        #if result < os.EX__BASE:
-        #        Gtk.main_quit()
-        #        return
         self.show_all()
-        #error_dialog = Gtk.MessageDialog(self, Gtk.DialogFlags.DESTROY_WITH_PARENT, Gtk.MessageType.ERROR, Gtk.ButtonsType.OK, 'An Error Occurred')
-        #error_dialog.set_title('Error')
-        #error_dialog.run()
-        #error_dialog.destroy()
         return
+
 
 def main():
     rdesktop_bin = find_rdesktop()
     if not rdesktop_bin:
-        print ('could not locate the rdesktop binary')
+        print('could not locate the rdesktop binary')
         return 0
-    config_path = os.path.join(os.path.expanduser('~'), '.config', 'rdesktop-gui.conf')
+    config_path = os.path.join(
+        os.path.expanduser('~'),
+        '.config',
+        'rdesktop-gui.conf'
+    )
     if not os.path.isfile(config_path):
         open(config_path, 'w')
     win = RdesktopWindow(rdesktop_bin, config_path)
@@ -247,5 +267,6 @@ def main():
     win.show_all()
     Gtk.main()
 
+
 if __name__ == '__main__':
-  main()
+    main()
