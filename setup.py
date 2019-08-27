@@ -8,22 +8,18 @@ shutil.copyfile('python_rdesktop_gui.py', 'python_rdesktop_gui')
 
 setup(
     name='python_rdesktop_gui',
-    version='0.3',
-    scripts = ['python_rdesktop_gui'],
-    
-    platforms = 'linux',
+    version='0.5',
+    scripts=['python_rdesktop_gui'],
+    platforms='linux',
     author='Spencer McIntyre',
     author_email='',
-    maintainer = 'Jorge Hernández (lesthack)',
-    maintainer_email = 'lesthack@gmail.com',
+    maintainer='Jorge Hernández (lesthack)',
+    maintainer_email='lesthack@gmail.com',
     description='A sample gui for rdesktop',
-    long_description='A sample gui for rdesktop',
-    long_description_content_type='text/x-rst',
-    license='GPL3',    
+    license='GPL3',
     keywords=['rdesktop', 'rdp', 'remote desktop', 'terminal server'],
-    url='https://github.com/lesthack/python_rdesktop_gui.git',
-    
-    data_files = [
+    url='https://github.com/lesthack/python_rdesktop_gui',
+    data_files=[
         ('/usr/share/applications', ['data/python_rdesktop_gui.desktop']),
         ('/usr/local/share/icons/hicolor/16x16/apps', ['data/icons/16x16/apps/python_rdesktop_gui.png']),
         ('/usr/local/share/icons/hicolor/22x22/apps', ['data/icons/22x22/apps/python_rdesktop_gui.png']),
@@ -35,7 +31,6 @@ setup(
         ('/usr/local/share/icons/hicolor/256x256/apps', ['data/icons/256x256/apps/python_rdesktop_gui.png']),
         ('/usr/local/share/icons/hicolor/scalable/apps', ['data/icons/scalable/apps/python_rdesktop_gui.svg']),
     ],
-
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -51,4 +46,3 @@ setup(
         'Topic :: Utilities',
     ],
 )
-
